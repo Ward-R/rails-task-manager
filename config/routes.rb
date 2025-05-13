@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   # patch to existing task
   patch "/tasks/:id", to: "tasks#update"
   # Defines the root path route ("/")
+  # DELETE
+  delete "/tasks/:id", to: "tasks#destroy", as: :delete_task
   # root "posts#index"
 end

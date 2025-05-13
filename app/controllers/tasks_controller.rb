@@ -33,6 +33,13 @@ class TasksController < ApplicationController
     redirect_to task_path(@task)
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy #(task_params)
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to tasks_path, status: :see_other    # deleted from
+  end
+
   def task_params
     # Strong params -> white listing the attributes users can give us in the form
     params.require(:task).permit(:title, :details)
